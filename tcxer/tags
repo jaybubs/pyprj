@@ -1,0 +1,38 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/bd612ba3/
+BS	Tcxer.py	/^from bs4 import BeautifulSoup as BS$/;"	x
+BS	chart.py	/^from bs4 import BeautifulSoup as BS$/;"	x
+SF	Tcxer.py	/^from scipy.signal import savgol_filter as SF$/;"	x
+SF	chart.py	/^from scipy.signal import savgol_filter as SF$/;"	x
+Tcxer	Tcxer.py	/^class Tcxer():$/;"	c
+__init__	Tcxer.py	/^    def __init__(self, name, tagx, tagy):$/;"	m	class:Tcxer
+createData	chart.py	/^def createData(arguments):$/;"	f
+createXAxis	chart.py	/^def createXAxis():$/;"	f
+createYAxis	chart.py	/^def createYAxis():$/;"	f
+data	powercompare.py	/^data = []$/;"	v
+desiredY	chart.py	/^desiredY = 'watts'$/;"	v
+file	powercompare.py	/^    file = Tcxer(filename, 'time', 'watts')$/;"	v
+file1	test.py	/^file1 = Tcxer('swiss.tcx', 'time', 'watts')$/;"	v
+file2	test.py	/^file2 = Tcxer('swissclimb.tcx', 'time', 'watts')$/;"	v
+files	powercompare.py	/^files = []$/;"	v
+findAll	Tcxer.py	/^    def findAll(self):$/;"	m	class:Tcxer
+getMovingAverage	chart.py	/^def getMovingAverage(variable):$/;"	f
+makeSoup	Tcxer.py	/^    def makeSoup(self):$/;"	m	class:Tcxer
+makeSoup	chart.py	/^def makeSoup(arg): #need to be fed argv$/;"	f
+movingAverage	Tcxer.py	/^    def movingAverage(self, period, polynomial):$/;"	m	class:Tcxer
+np	chart.py	/^import numpy as np$/;"	I
+np	powercompare.py	/^import numpy as np$/;"	I
+np	test.py	/^import numpy as np$/;"	I
+numOfVars	chart.py	/^numOfVars = len(argv)-1$/;"	v
+plt	chart.py	/^import matplotlib.pyplot as plt$/;"	I
+plt	powercompare.py	/^import matplotlib.pyplot as plt$/;"	I
+plt	test.py	/^import matplotlib.pyplot as plt$/;"	I
+ticker	chart.py	/^import matplotlib.ticker as ticker$/;"	I
+ticker	powercompare.py	/^import matplotlib.ticker as ticker$/;"	I
+ticker	test.py	/^import matplotlib.ticker as ticker$/;"	I
