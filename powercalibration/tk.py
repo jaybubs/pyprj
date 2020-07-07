@@ -1,27 +1,54 @@
+#view using the matfig model and a generic button controller
 import tkinter as tk
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, NavigationToolbar2Tk)
+from matplotlib.backend_bases import key_press_handler
+from matfig import matfig
+from controller import controller
+import numpy as np
+
+global canvas,newfig,shit
 
 window = tk.Tk()
+window.wm_title("buelaebcubeuaohubauh")
 
-form = tk.Frame(relief=tk.SUNKEN,borderwidth=3)
-form.pack()
+x = np.array([1,2,3,6,1])
+y = np.array([2,5,2,1,2])
 
-labels = ["A", "B", "C"]
+newfig = matfig(x,y)
+newfig.dummy()
+action = controller(newfig)
 
-for idx, text in enumerate(labels):
-    label = tk.Label(master=form, text=text)
-    entry = tk.Entry(master=form, width=50)
-    label.grid(row=idx, column=0, sticky="e")
-    entry.grid(row=idx, column=1)
+canvas = FigureCanvasTkAgg(newfig.fig, master=window)
+canvas.draw()
 
-buttons = tk.Frame()
-buttons.pack(fill=tk.X, ipadx=5, ipady=5)
+toolbar = NavigationToolbar2Tk(canvas, window)
+toolbar.update()
 
-but = ["cock", "pussy", "dick"]
+def on_key_press(event):
+    print("you pressed {}".format(event.key))
+    key_press_handler(event, canvas, toolbar)
 
-for shit, text in enumerate(but):
-    butty = tk.Button(master=buttons, text=text)
-    butty.pack(side=tk.RIGHT, padx=10, ipadx=10)
+canvas.mpl_connect("key_press_event", on_key_press)
 
-window.mainloop()
+#button clicked - data taken, passed to a model
+def add():
+    action.add(ent1.get(),ent2.get())
+    newfig.dummy() #updates axes
+    print(newfig.x,newfig.y) #debug
+    canvas.draw() #updates view
+
+row = tk.Frame(master=window)
+# v = tk.StringVar()
+ent1 = tk.Entry(row)
+ent2 = tk.Entry(row)
+but = tk.Button(row, text="add x,y", command=add)
+row.pack(side=tk.BOTTOM, fill = tk.X, padx=5, pady=5)
+ent1.pack(side=tk.RIGHT, expand=tk.YES, fill=tk.X)
+ent2.pack(side=tk.RIGHT, expand=tk.YES, fill=tk.X)
+but.pack(side=tk.RIGHT, expand=tk.YES, fill=tk.X, padx=5, pady=5)
+
+quitButton = tk.Button(master=window, text="quit", command=window.quit)
+quitButton.pack(side=tk.BOTTOM)
+
+canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+tk.mainloop()
